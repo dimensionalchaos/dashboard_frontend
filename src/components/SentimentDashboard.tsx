@@ -133,67 +133,57 @@ const mockSentimentData = {
 
 const mockPositiveTopics = {
   "customer-support": [
-    { name: "Quick Resolution", value: 156, trend: "up" as const, change: 12 },
-    { name: "Helpful Staff", value: 134, trend: "up" as const, change: 8 },
-    { name: "Easy Process", value: 98, trend: "down" as const, change: 3 },
+    { name: "Quick Resolution", value: 156 },
+    { name: "Helpful Staff", value: 134 },
+    { name: "Easy Process", value: 98 },
   ],
   "product-feedback": [
-    { name: "User Interface", value: 198, trend: "up" as const, change: 15 },
-    { name: "Performance", value: 167, trend: "up" as const, change: 22 },
-    { name: "New Features", value: 145, trend: "up" as const, change: 18 },
+    { name: "User Interface", value: 198 },
+    { name: "Performance", value: 167 },
+    { name: "New Features", value: 145 },
   ],
   "social-media": [
-    { name: "Brand Loyalty", value: 245, trend: "up" as const, change: 25 },
-    { name: "Product Quality", value: 198, trend: "up" as const, change: 12 },
-    { name: "Innovation", value: 156, trend: "down" as const, change: 5 },
+    { name: "Brand Loyalty", value: 245 },
+    { name: "Product Quality", value: 198 },
+    { name: "Innovation", value: 156 },
   ],
   reviews: [
-    { name: "Value for Money", value: 178, trend: "up" as const, change: 18 },
-    { name: "Quality", value: 145, trend: "up" as const, change: 14 },
-    { name: "Design", value: 123, trend: "up" as const, change: 9 },
+    { name: "Value for Money", value: 178 },
+    { name: "Quality", value: 145 },
+    { name: "Design", value: 123 },
   ],
   surveys: [
-    { name: "Satisfaction", value: 89, trend: "up" as const, change: 16 },
-    { name: "Recommendation", value: 76, trend: "up" as const, change: 12 },
-    { name: "Loyalty", value: 67, trend: "down" as const, change: 2 },
+    { name: "Satisfaction", value: 89 },
+    { name: "Recommendation", value: 76 },
+    { name: "Loyalty", value: 67 },
   ],
 };
 
 const mockNegativeTopics = {
   "customer-support": [
-    { name: "Long Wait Times", value: 87, trend: "down" as const, change: 8 },
-    { name: "Complex Process", value: 76, trend: "up" as const, change: 12 },
-    {
-      name: "Lack of Follow-up",
-      value: 65,
-      trend: "down" as const,
-      change: 15,
-    },
+    { name: "Long Wait Times", value: 87 },
+    { name: "Complex Process", value: 76 },
+    { name: "Lack of Follow-up", value: 65 },
   ],
   "product-feedback": [
-    { name: "Bugs & Issues", value: 78, trend: "down" as const, change: 18 },
-    { name: "Missing Features", value: 65, trend: "up" as const, change: 5 },
-    { name: "Complexity", value: 45, trend: "down" as const, change: 22 },
+    { name: "Bugs & Issues", value: 78 },
+    { name: "Missing Features", value: 65 },
+    { name: "Complexity", value: 45 },
   ],
   "social-media": [
-    { name: "Pricing Concerns", value: 198, trend: "up" as const, change: 15 },
-    { name: "Shipping Issues", value: 156, trend: "down" as const, change: 8 },
-    {
-      name: "Product Availability",
-      value: 134,
-      trend: "up" as const,
-      change: 12,
-    },
+    { name: "Pricing Concerns", value: 198 },
+    { name: "Shipping Issues", value: 156 },
+    { name: "Product Availability", value: 134 },
   ],
   reviews: [
-    { name: "Shipping Delays", value: 34, trend: "down" as const, change: 25 },
-    { name: "Poor Packaging", value: 23, trend: "up" as const, change: 8 },
-    { name: "Wrong Item", value: 18, trend: "down" as const, change: 12 },
+    { name: "Shipping Delays", value: 34 },
+    { name: "Poor Packaging", value: 23 },
+    { name: "Wrong Item", value: 18 },
   ],
   surveys: [
-    { name: "Price Sensitivity", value: 21, trend: "up" as const, change: 15 },
-    { name: "Feature Requests", value: 12, trend: "down" as const, change: 5 },
-    { name: "Support Issues", value: 6, trend: "down" as const, change: 35 },
+    { name: "Price Sensitivity", value: 21 },
+    { name: "Feature Requests", value: 12 },
+    { name: "Support Issues", value: 6 },
   ],
 };
 
