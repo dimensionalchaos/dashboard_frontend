@@ -96,27 +96,9 @@ export const TopicBarChart = ({ title, data, type }: TopicBarChartProps) => {
           {data.map((item, index) => (
             <div key={index} className="flex items-center justify-between">
               <span className="text-sm text-muted-foreground">{item.name}</span>
-              <div className="flex items-center space-x-2">
-                <span className="text-sm font-medium text-foreground">
-                  {item.value}
-                </span>
-                <div className="flex items-center space-x-1">
-                  {item.trend === "up" ? (
-                    <TrendingUp className="w-3 h-3 text-sentiment-positive" />
-                  ) : (
-                    <TrendingDown className="w-3 h-3 text-sentiment-negative" />
-                  )}
-                  <span
-                    className={`text-xs ${
-                      item.trend === "up"
-                        ? "text-sentiment-positive"
-                        : "text-sentiment-negative"
-                    }`}
-                  >
-                    {item.change}%
-                  </span>
-                </div>
-              </div>
+              <span className="text-sm font-medium text-foreground">
+                {item.value}
+              </span>
             </div>
           ))}
         </div>
