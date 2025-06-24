@@ -13,8 +13,6 @@ import { TrendingUp, TrendingDown } from "lucide-react";
 interface TopicData {
   name: string;
   value: number;
-  trend: "up" | "down";
-  change: number;
 }
 
 interface TopicBarChartProps {
@@ -33,22 +31,6 @@ const CustomTooltip = ({ active, payload, label }: any) => {
           Mentions:{" "}
           <span className="font-semibold text-foreground">{data.value}</span>
         </p>
-        <div className="flex items-center space-x-1 mt-1">
-          {data.payload.trend === "up" ? (
-            <TrendingUp className="w-3 h-3 text-sentiment-positive" />
-          ) : (
-            <TrendingDown className="w-3 h-3 text-sentiment-negative" />
-          )}
-          <span
-            className={`text-xs ${
-              data.payload.trend === "up"
-                ? "text-sentiment-positive"
-                : "text-sentiment-negative"
-            }`}
-          >
-            {data.payload.change}% vs last period
-          </span>
-        </div>
       </div>
     );
   }
