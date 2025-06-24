@@ -197,163 +197,18 @@ const mockNegativeTopics = {
   ],
 };
 
-const mockSuggestions = {
-  "customer-support": [
-    {
-      id: "1",
-      type: "warning" as const,
-      title: "Increase in wait time complaints",
-      description: "Consider adding more support staff during peak hours",
-      priority: "high" as const,
-      action: "Review Staffing",
-    },
-    {
-      id: "2",
-      type: "opportunity" as const,
-      title: "High satisfaction with quick resolutions",
-      description: "Promote fast resolution times in marketing materials",
-      priority: "medium" as const,
-      action: "Create Campaign",
-    },
-  ],
-  "product-feedback": [
-    {
-      id: "1",
-      type: "success" as const,
-      title: "UI improvements well received",
-      description: "Recent design updates showing positive response",
-      priority: "low" as const,
-    },
-    {
-      id: "2",
-      type: "opportunity" as const,
-      title: "Performance optimizations needed",
-      description: "Users requesting faster load times and responsiveness",
-      priority: "high" as const,
-      action: "Optimize Performance",
-    },
-  ],
-  "social-media": [
-    {
-      id: "1",
-      type: "warning" as const,
-      title: "Pricing concerns trending",
-      description: "Monitor competitive pricing and value proposition",
-      priority: "high" as const,
-      action: "Price Analysis",
-    },
-    {
-      id: "2",
-      type: "opportunity" as const,
-      title: "Strong brand loyalty signals",
-      description: "Leverage loyal customers for testimonials and referrals",
-      priority: "medium" as const,
-      action: "Launch Referral Program",
-    },
-  ],
-  reviews: [
-    {
-      id: "1",
-      type: "success" as const,
-      title: "Excellent review sentiment",
-      description: "Maintaining high positive review ratio",
-      priority: "low" as const,
-    },
-    {
-      id: "2",
-      type: "info" as const,
-      title: "Shipping feedback opportunity",
-      description: "Minor improvements to packaging could boost ratings",
-      priority: "medium" as const,
-      action: "Improve Packaging",
-    },
-  ],
-  surveys: [
-    {
-      id: "1",
-      type: "opportunity" as const,
-      title: "High recommendation scores",
-      description: "Leverage satisfied customers for case studies",
-      priority: "medium" as const,
-      action: "Create Case Studies",
-    },
-    {
-      id: "2",
-      type: "info" as const,
-      title: "Feature request patterns",
-      description: "Consider prioritizing most requested features",
-      priority: "low" as const,
-      action: "Review Roadmap",
-    },
-  ],
-};
-
-const mockSummary = {
-  "customer-support": [
-    {
-      label: "Total Mentions",
-      value: "1,247",
-      change: 8,
-      trend: "up" as const,
-    },
-    {
-      label: "Avg Sentiment",
-      value: "3.2/5",
-      change: 12,
-      trend: "up" as const,
-    },
-    { label: "Response Rate", value: "94%", change: 5, trend: "up" as const },
-    {
-      label: "Resolution Time",
-      value: "2.3h",
-      change: -15,
-      trend: "down" as const,
-    },
-  ],
-  "product-feedback": [
-    { label: "Total Feedback", value: "892", change: 15, trend: "up" as const },
-    { label: "Avg Rating", value: "4.1/5", change: 8, trend: "up" as const },
-    {
-      label: "Feature Requests",
-      value: "156",
-      change: 22,
-      trend: "up" as const,
-    },
-    { label: "Bug Reports", value: "34", change: -18, trend: "down" as const },
-  ],
-  "social-media": [
-    {
-      label: "Total Mentions",
-      value: "2,156",
-      change: 12,
-      trend: "up" as const,
-    },
-    {
-      label: "Engagement Rate",
-      value: "5.8%",
-      change: 15,
-      trend: "up" as const,
-    },
-    { label: "Share of Voice", value: "34%", change: 8, trend: "up" as const },
-    {
-      label: "Brand Mentions",
-      value: "1,456",
-      change: 18,
-      trend: "up" as const,
-    },
-  ],
-  reviews: [
-    { label: "Total Reviews", value: "654", change: 22, trend: "up" as const },
-    { label: "Avg Rating", value: "4.6/5", change: 5, trend: "up" as const },
-    { label: "5-Star Reviews", value: "458", change: 28, trend: "up" as const },
-    { label: "Response Rate", value: "98%", change: 3, trend: "up" as const },
-  ],
-  surveys: [
-    { label: "Responses", value: "387", change: 8, trend: "up" as const },
-    { label: "NPS Score", value: "67", change: 12, trend: "up" as const },
-    { label: "Completion Rate", value: "89%", change: 5, trend: "up" as const },
-    { label: "Satisfaction", value: "4.2/5", change: 15, trend: "up" as const },
-  ],
+// Mock AI analysis text - in a real app this would come from your AI API
+const mockAnalysisText = {
+  "customer-support":
+    "Based on the sentiment analysis, customer support is performing well with 55% positive sentiment. Key insights: Quick resolution times are driving satisfaction, but wait times remain a concern. Consider implementing automated responses for common queries to reduce response time.",
+  "product-feedback":
+    "Product feedback shows strong positive sentiment at 60%. Users particularly appreciate recent UI improvements and performance updates. The main areas for improvement are feature requests and bug resolution speed.",
+  "social-media":
+    "Social media sentiment is mixed with equal positive and negative mentions (40% vs 30%). Brand loyalty remains strong, but pricing concerns are trending. Consider addressing value proposition in upcoming campaigns.",
+  reviews:
+    "Reviews show excellent sentiment with 70% positive feedback. High ratings are driven by product quality and value. Minor packaging improvements could further boost satisfaction scores.",
+  surveys:
+    "Survey responses indicate strong customer satisfaction with 60% positive sentiment. High NPS score of 67 suggests good retention potential. Focus on converting satisfied customers into advocates.",
 };
 
 export const SentimentDashboard = () => {
@@ -368,12 +223,9 @@ export const SentimentDashboard = () => {
   const currentNegativeTopics =
     mockNegativeTopics[activeTopic as keyof typeof mockNegativeTopics] ||
     mockNegativeTopics["customer-support"];
-  const currentSuggestions =
-    mockSuggestions[activeTopic as keyof typeof mockSuggestions] ||
-    mockSuggestions["customer-support"];
-  const currentSummary =
-    mockSummary[activeTopic as keyof typeof mockSummary] ||
-    mockSummary["customer-support"];
+  const currentAnalysisText =
+    mockAnalysisText[activeTopic as keyof typeof mockAnalysisText] ||
+    mockAnalysisText["customer-support"];
 
   return (
     <div className="min-h-screen bg-background">
@@ -392,10 +244,7 @@ export const SentimentDashboard = () => {
 
           {/* AI Suggestions & Summary */}
           <div className="order-2">
-            <AISuggestions
-              suggestions={currentSuggestions}
-              summary={currentSummary}
-            />
+            <AISuggestions analysisText={currentAnalysisText} />
           </div>
 
           {/* Top Positive Topics */}
